@@ -11,8 +11,8 @@ CREATE TABLE Plantation (
 
 CREATE TABLE PlantationFlowers (
 	[PlantationId]	INT NOT NULL FOREIGN KEY REFERENCES Plantation(Id),
-	[FlowerId]		INT NOT NULL FOREIGN KEY REFERENCES Flower(Id),
-	[Amount]		INT NOT NULL CHECK([Amount] > 0)
+	[FlowerId]	INT NOT NULL FOREIGN KEY REFERENCES Flower(Id),
+	[Amount]	INT NOT NULL CHECK([Amount] > 0)
 );
 
 CREATE TABLE Warehouse (
@@ -23,17 +23,17 @@ CREATE TABLE Warehouse (
 
 CREATE TABLE WarehouseFlowers (
 	[WarehouseId]	INT NOT NULL FOREIGN KEY REFERENCES Warehouse(Id),
-	[FlowerId]		INT NOT NULL FOREIGN KEY REFERENCES Flower(Id),
-	[Amount]		INT NOT NULL CHECK([Amount] > 0)
+	[FlowerId]	INT NOT NULL FOREIGN KEY REFERENCES Flower(Id),
+	[Amount]	INT NOT NULL CHECK([Amount] > 0)
 );
 
 CREATE TABLE Supply (
-	[Id]			INT IDENTITY PRIMARY KEY,
+	[Id]		INT IDENTITY PRIMARY KEY,
 	[PlantationId]	INT NOT NULL FOREIGN KEY REFERENCES Plantation(Id),
 	[WarehouseId]	INT NOT NULL FOREIGN KEY REFERENCES Warehouse(Id),
 	[ScheduleDate]	DATE NOT NULL,
 	[ClosedDate]	DATE,
-	[Status]		VARCHAR(10) NOT NULL CHECK([Status] IN ('Scheduled', 'InProgress', 'Canceled', 'Closed'))
+	[Status]	VARCHAR(10) NOT NULL CHECK([Status] IN ('Scheduled', 'InProgress', 'Canceled', 'Closed'))
 );
 
 CREATE TABLE SupplyFlowers (
