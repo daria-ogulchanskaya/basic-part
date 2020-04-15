@@ -1,10 +1,10 @@
 SELECT [Name], [Address] FROM Plantation
 
 SELECT Plantation.[Id], 
-	   Plantation.[Name], 
-	   Plantation.[Address], 
-	   Flower.[Name] AS [FlowerName],
-	   PlantationFlowers.[Amount] 
+       Plantation.[Name], 
+       Plantation.[Address], 
+       Flower.[Name] AS [FlowerName],
+       PlantationFlowers.[Amount] 
 FROM Plantation, PlantationFlowers 
 LEFT OUTER JOIN Flower ON Flower.[Id] = PlantationFlowers.[FlowerId]
 WHERE  Plantation.[Id] = PlantationFlowers.[PlantationId]
@@ -21,17 +21,17 @@ WHERE PlantationFlowers.[Amount] > 1000
 GROUP BY Flower.[Id], Flower.[Name]
 
 SELECT SupplyFlowers.[FlowerId], 
-	   Flower.[Name],
-	   SupplyFlowers.[Amount] 
+       Flower.[Name],
+       SupplyFlowers.[Amount] 
 FROM SupplyFlowers
 LEFT OUTER JOIN Supply ON Supply.[Id] = SupplyFlowers.[SupplyId]
 LEFT OUTER JOIN Flower ON Flower.[Id] = SupplyFlowers.[FlowerId]
 WHERE [PlantationId] = 1
 
 SELECT Supply.[Id], 
-	   Plantation.[Name] AS [Plantation],
-	   Warehouse.[Name] AS [Warehouse],
-	   Supply.[ClosedDate] 
+       Plantation.[Name] AS [Plantation],
+       Warehouse.[Name] AS [Warehouse],
+       Supply.[ClosedDate] 
 FROM Supply
 LEFT OUTER JOIN Plantation ON Plantation.[Id] = Supply.[PlantationId]
 LEFT OUTER JOIN Warehouse ON Warehouse.[Id] = Supply.[WarehouseId]
