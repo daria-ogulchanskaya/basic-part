@@ -1,10 +1,10 @@
 INSERT INTO [Plantation] ([Name], [Address])
 VALUES 
 	('DASHGARDEN',	    '36 FLower Street, WA'), 
-	('DRAGONFLOWERS',	'142 Dragonfly Street, NY'),
+	('DRAGONFLOWERS',   '142 Dragonfly Street, NY'),
 	('JUNGLEDALE',	    '205 Jungle Road, LA'),
 	('ROSE PLANTATION', '4 Rosie Street, AL'),
-	('VIOLET HILL',		'66 Violet Road, MA')
+	('VIOLET HILL',	    '66 Violet Road, MA')
 
 INSERT INTO [PlantationFlowers] 
 		   ([PlantationId]
